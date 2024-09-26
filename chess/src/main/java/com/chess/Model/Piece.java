@@ -36,7 +36,7 @@ public class Piece {
         for (int i = 0; i < 8; i++) {
             board[1][i] = new Piece('W',"Pawn",1,i);
         }
-
+        
         board[7][0] = new Piece('B',"Rook",7,0);
         board[7][1] = new Piece('B',"Knight",7,1);
         board[7][2] = new Piece('B',"Bishop",7,2);
@@ -45,11 +45,12 @@ public class Piece {
         board[7][5] = new Piece('B',"Bishop",7,5);
         board[7][6] = new Piece('B',"Knight",7,6);
         board[7][7] = new Piece('B',"Rook",7,7);
-
+        
+        
         for (int i = 0; i < 8; i++) {
-            board[1][i] = new Piece('B',"Pawn",7,i);
+            board[6][i] = new Piece('B',"Pawn",7,i);
         }
-
+         
         showBoard(board);
 
     }
