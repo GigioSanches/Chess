@@ -3,10 +3,10 @@ package com.chess;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.chess.Model.Board;
 import com.chess.Model.Piece;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.chess")
+
 public class ChessApplication {
 
 	public static void main(String[] args) {

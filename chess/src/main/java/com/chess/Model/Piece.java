@@ -1,5 +1,6 @@
 package com.chess.Model;
 
+
 public class Piece {
     public String Name;
     public char Color;
@@ -22,7 +23,7 @@ public class Piece {
         return this.Name;
     }
 
-    public static void setupBoard(Piece[][] board) {
+    public static Piece[][] setupBoard(Piece[][] board) {
 
         board[0][0] = new Piece('W',"Rook",0,0);
         board[0][1] = new Piece('W',"Knight",0,1);
@@ -51,22 +52,24 @@ public class Piece {
             board[6][i] = new Piece('B',"Pawn",7,i);
         }
          
-        showBoard(board);
+
+        return board;
 
     }
 
-    public static void showBoard(Piece[][] board){
+    public static Piece[][] showBoard(Piece[][] board){
         for (int x = 0; x < board.length; x++ ) {
             for (int y = 0; y < board[x].length;y++){
                 if(board[x][y] != null){
-                    System.out.print(board[x][y].getName().charAt(0) + "" + board[x][y].getColor() + " ");
+                    //System.out.print(board[x][y].getName().charAt(0) + "" + board[x][y].getColor() + " ");
                 }
                 else{
-                    System.out.println();
+                    //System.out.println();
                 }
             }
-            System.out.println();
+            //System.out.println();
         }
+        return board;
     }
 
 }
