@@ -44,9 +44,6 @@ public class Board {
             }
         }
     }
-
-    
-
     
     public Piece[][] showBoard() {
         setupBoard();

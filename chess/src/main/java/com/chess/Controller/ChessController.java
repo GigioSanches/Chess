@@ -1,6 +1,7 @@
 package com.chess.Controller;
 
 import com.chess.Model.Board;
+import com.chess.Model.Move;
 import com.chess.Model.Piece;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,8 +21,13 @@ public class ChessController {
     }
 
     @PostMapping("/api/ExibePosicao")
-    public void ExibePosicao(@RequestBody Piece piece) {
-        System.out.println(piece.name + " " + piece.color + " " + piece.x + " " + piece.y);
-    }
+    public void ExibePosicao(@RequestBody Move move) {
+
+        Piece currentPosition = move.getCurrentPosition();
+        Piece newPosition = move.getNewPosition();
+
+        System.out.println("Peça atual: " + currentPosition.getName() + " " +
+                       currentPosition.getColor() + " (" + currentPosition.getX() + ", " + currentPosition.getY() + ")");
+        System.out.println("Nova posição: (" + newPosition.getX() + ", " + newPosition.getY() + ")");    }
 
 }
