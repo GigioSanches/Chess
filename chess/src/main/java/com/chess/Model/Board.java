@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class Board {
 
     Piece[][] board = new Piece[8][8];
-
+    
     public void setupBoard() {
         for (int i = 0; i < 8; i++) {
             board[1][i] = new Pawn("Pawn", "White", 1, i);
@@ -33,35 +33,38 @@ public class Board {
         board[0][3] = new Queen("Queen", "White", 0, 3);
         board[7][3] = new Queen("Queen", "Black", 7, 3);
 
-        board[0][4] = new King("O", "White", 0, 4);
-        board[7][4] = new King("O", "Black", 7, 4);
+        board[0][4] = new King("King", "White", 0, 4);
+        board[7][4] = new King("King", "Black", 7, 4);
         
-        for(int x =0; x < 8; x++) {
+        for(int x =2; x < 6; x++) {
             for(int y = 0; y < 8; y++) {
-                if(board[x][y] == null) {
-                    board[x][y] = new Piece(" ", " ", x, y); 
-                }
+                //if(board[x][y] == null) {
+                board[x][y] = new Piece(" ", " ", x, y); 
+                //}
             }
         }
     }
     
-    public Piece[][] showBoard() {
-        setupBoard();
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (board[i][j] != null) {
-                    System.out.print(" " + board[i][j].name.substring(0,1) + " ");
-                } else {
-                    System.out.print(" - ");
-                }
-            }
-            System.out.println();
-        }
+    public Piece[][] getBoard() {
         return board;
     }
 
-    
-    public void ExibePosicao(Piece piece) {
-        System.out.println("parasasa");
+    public void movePiece(Piece currentPosition, Piece newPosition) {
+        int currentX = currentPosition.getX();
+        int currentY = currentPosition.getY();
+        int newX = newPosition.getX();
+        int newY = newPosition.getY();
+
+        Piece pieceToMove = board[currentX][currentY];
+
+        if (board[newX][newY] != null) {
+            System.out.println("Target position is occupied by: " + board[newX][newY].getName() + " " + board[newX][newY].getColor());
+        }
+
+        pieceToMove.setX(newX);
+        pieceToMove.setY(newY);
+
+        board[newX][newY] = pieceToMove;
+        board[currentX][currentY] = new Piece(" ", " ", currentX, currentY);
     }
 }

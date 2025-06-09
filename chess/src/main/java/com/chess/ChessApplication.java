@@ -14,6 +14,6 @@ public class ChessApplication {
 		System.out.println("Let's start the chess");
 		Board board = new Board();
 		board.setupBoard();
-		board.showBoard();
+		board.getBoard();
 	}
-}
+}	
