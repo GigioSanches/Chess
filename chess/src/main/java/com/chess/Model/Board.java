@@ -38,9 +38,7 @@ public class Board {
         
         for(int x =2; x < 6; x++) {
             for(int y = 0; y < 8; y++) {
-                //if(board[x][y] == null) {
                 board[x][y] = new Piece(" ", " ", x, y); 
-                //}
             }
         }
     }
